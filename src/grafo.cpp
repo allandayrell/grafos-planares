@@ -10,7 +10,6 @@ Grafo::~Grafo() {
   
 }
 
-
 void Grafo::InsereVertice() {
     Vertice* v = new Vertice;
     v->rotulo = this->vertices->proximoNumero;

@@ -27,22 +27,36 @@ int main() {
         novoGrafo.getVertices()[i].x = coordenadaX;
         novoGrafo.getVertices()[i].y = coordenadaY;
     
-        //cout << "Digite a quantidade de vizinhos de " << i << " e depois os vizinhos: <n> <v1> ... <vn>" << endl;
+        cout << "Digite a quantidade de vizinhos de " << i << " e depois os vizinhos: <n> <v1> ... <vn>" << endl;
         //Le o grau do vertice
-        cout << "Digite o grau do vertice " << i << ": " <<endl;
+        //cout << "Digite o grau do vertice " << i << ": " <<endl;
         cin >> grau;
         novoGrafo.getVertices()[i].g = grau; 
         novoGrafo.getVertices()[i].vizinhos = new int[grau];
 
         //insere rotulos ao inves de usar arestas
+        //cout << "Digite os "<< grau << " vizinhos do vertice " << i << ": " <<endl;
         for(int j = 0; j < grau; j++){
             assert(novoGrafo.getVertices()[i].vizinhos != nullptr);
             
             int rotuloVizinho;
-            cout << "Digite os "<< grau << " vizinhos do vertice " << i << ": " <<endl;
             cin >> rotuloVizinho;
             novoGrafo.getVertices()[i].vizinhos[j] = rotuloVizinho;
         }
+    }
+
+    for(int i = 0; i < qtdVertices; i++){
+        cout <<"Rotulo vertice "<< i << ": "<< novoGrafo.getVertices()[i].rotulo << endl;
+        cout <<"Grau vertice "<< i << ": "<< novoGrafo.getVertices()[i].g << endl;
+        cout <<"Coordenadas vertice "<< i << ": "<< novoGrafo.getVertices()[i].x << "," << novoGrafo.getVertices()[i].y << endl;
+        cout <<"Vizinhos vertice "<< i << ": ";
+        for(int j = 0; j < novoGrafo.getVertices()[i].g; j++){
+            cout << novoGrafo.getVertices()[i].vizinhos[j];
+            if(j < novoGrafo.getVertices()[i].g - 1){
+                cout << ", ";
+            }
+        }
+        cout << endl;
     }
 
 }
